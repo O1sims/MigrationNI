@@ -10,6 +10,8 @@ The purpose of this repositorty is to produce a number of models, charts and gra
 
 Long-term migration statistics are collected from the [Northern Ireland Statistics and Research Agency](https://www.nisra.gov.uk/statistics/population/long-term-international-migration-statistics).
 
+UK-wide regional data are collected from the [Office of National Statistics](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/bulletins/nationalpopulationprojections/2016basedstatisticalbulletin). 
+
 ## 3 Contact
 
 Please contact [me](mailto:sims.owen@gmail.com) with regards any issues or queries that you have.
