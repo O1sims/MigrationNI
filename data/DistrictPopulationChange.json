@@ -1,0 +1,57 @@
+[
+  {
+    "location": "Ards & North Down",
+    "population2016": 159593,
+    "population2041": 162934
+  },
+  {
+    "location": "Antrim & Newtownabbey",
+    "population2016": 141032,
+    "population2041": 146865
+  },
+  {
+    "location": "Armagh City, Banbridge & Craigavon",
+    "population2016": 210260,
+    "population2041": 251621
+  },
+  {
+    "location": "Belfast",
+    "population2016": 339579,
+    "population2041": 353280
+  },
+  {
+    "location": "Causeway Coast & Glens",
+    "population2016": 143525,
+    "population2041": 142211
+  },
+  {
+    "location": "Derry City & Strabane",
+    "population2016": 150142,
+    "population2041": 145852
+  },
+  {
+    "location": "Fermanagh & Omagh",
+    "population2016": 115799,
+    "population2041": 120137
+  },
+  {
+    "location": "Lisburn & Castlereagh",
+    "population2016": 141181,
+    "population2041": 167891
+  },
+  {
+    "location": "Mid & East Antrim",
+    "population2016": 137821,
+    "population2041": 142386
+  },
+  {
+    "location": "Mid Ulster",
+    "population2016": 145389,
+    "population2041": 170575
+  },
+  {
+    "location": "Newry, Mourne & Down",
+    "population2016": 177816,
+    "population2041": 199645
+  }
+]
