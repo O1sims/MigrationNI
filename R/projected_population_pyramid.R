@@ -7,6 +7,7 @@
 
 library(ggplot2)
 library(ggthemes)
+library(reshape2)
 library(magrittr)
 
 
@@ -24,7 +25,7 @@ projectedPopulationPyramid <- function(future = FALSE) {
   }
   
   df <- data.frame(
-    age = c(paste0(seq(0, 95, 5)), "100+"),
+    age = c(paste0(seq(from = 0, to = 95, by = 5)), "100+"),
     male = male,
     female = female,
     stringsAsFactors = FALSE)
@@ -59,6 +60,11 @@ projectedPopulationPyramid <- function(future = FALSE) {
     scale_fill_ptol() +
     theme_minimal() + 
     theme(legend.position = "none")
+  
+  ggsave(filename = getwd() %>% 
+           paste0('/images/raw/populationPyramid', 
+                  ifelse(future, '-2041', '-2016'), '.png'),
+         plot = populationPyramid)
   
   return(populationPyramid)
 }

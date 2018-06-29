@@ -14,7 +14,7 @@ library(ggthemes)
 library(magrittr)
 
 
-actualProjectedPopulationChange <- function(dotted = FALSE, breakSeq = 5) {
+getPopulationProjection <- function(dotted = FALSE, breakSeq = 5) {
   NIPopulationData <- getwd() %>% 
     paste0("/data/NIPopulationData.json") %>% 
     jsonlite::fromJSON()
@@ -32,7 +32,10 @@ actualProjectedPopulationChange <- function(dotted = FALSE, breakSeq = 5) {
                linetype = 3, 
                colour = "black") + 
     geom_hline(yintercept = 0, alpha = 0.25) +
-    scale_x_continuous(breaks = seq(year[1], year[length(year)], breakSeq)) +
+    scale_x_continuous(breaks = seq(
+      NIPopulationData$year[1], 
+      NIPopulationData$year[length(NIPopulationData$year)], 
+      breakSeq)) +
     ggtitle("Natural change and net migration") + 
     xlab("Year") +
     ylab("Persons (1,000s)") +
@@ -40,7 +43,7 @@ actualProjectedPopulationChange <- function(dotted = FALSE, breakSeq = 5) {
     theme_minimal() + 
     theme(legend.position = "none")
   
-  populationProjection + 
+  populationProjection <- populationProjection + 
     annotate(
       "text", x = 2036, y = 4, label = "Natural change", 
       colour = "#332288", size = 4) + 
@@ -50,4 +53,11 @@ actualProjectedPopulationChange <- function(dotted = FALSE, breakSeq = 5) {
     annotate(
       "text", x = 2036, y = -1.5, label = "Net International migration", 
       colour = "#999933", size = 4)
+  
+  ggsave(filename = getwd() %>% 
+           paste0('/images/raw/populationProjection', 
+                  ifelse(dotted, '-dotted', ''), '.png'),
+         plot = populationProjection)
+  
+  return(populationProjection)
 }

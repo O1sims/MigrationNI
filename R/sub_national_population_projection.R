@@ -7,32 +7,38 @@ library(ggthemes)
 library(ggplot2)
 
 
-districtPopulationProjection <- function() {
-  districtPopulationChange <- getwd() %>% 
+subNationalPopulationProjection <- function() {
+  subNationalPopulationChange <- getwd() %>% 
     paste0("/data/DistrictPopulationChange.json") %>% 
     jsonlite::fromJSON()
   
-  districtPopulationChange$change = (
-    districtPopulationChange$population2041/districtPopulationChange$population2016 - 1
+  subNationalPopulationChange$change = (
+    subNationalPopulationChange$population2041/subNationalPopulationChange$population2016 - 1
     ) * 100
   
-  districtPopulationChange$colour <- ifelse(
-    test = districtPopulationChange$change < 0, 
+  subNationalPopulationChange$colour <- ifelse(
+    test = subNationalPopulationChange$change < 0, 
     yes = "negative",
     no = "positive")
   
-  districtProjection <- ggplot(
-    data=districtPopulationChange, 
-    aes(x=locations, y=change)) + 
-    geom_bar(stat="identity", position = "identity", aes(fill = colour))+
-    scale_fill_manual(values = c(positive = "steelblue", negative = "firebrick1")) + 
+  subNationalProjection <- ggplot(
+    data = subNationalPopulationChange, 
+    aes(x = location, y = change)) + 
+    geom_bar(
+      stat = "identity", position = "identity", 
+      aes(fill = colour)) +
+    scale_fill_manual(
+      values = c(positive = "steelblue", negative = "firebrick1")) + 
     coord_flip() +
-    scale_fill_ptol() +
     theme_minimal() + 
     theme(legend.position = "none") +
-    ggtitle("Sub-national projected percentage change in total population") + 
+    ggtitle("Sub-national projected percentage change \n in total population, 2016-2041") + 
     xlab("District") +
     ylab("Population change (%)")
   
-  return(districtProjection)
+  ggsave(filename = getwd() %>% 
+           paste0('/images/raw/subNationalProjection.png'),
+         plot = subNationalProjection)
+  
+  return(subNationalProjection)
 }

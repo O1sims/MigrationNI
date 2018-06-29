@@ -77,5 +77,9 @@ projectedPopulationAgeGroup <- function(region) {
         legend.key.size = unit(1, 'lines'))
   }
   
+  ggsave(filename = getwd() %>% 
+           paste0('/images/raw/populationChangeBar-', region, '.png'),
+         plot = populationChangeBar)
+  
   return(populationChangeBar)
 }

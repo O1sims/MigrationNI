@@ -11,7 +11,7 @@ library(ggthemes)
 library(magrittr)
 
 
-populationBreakdownNonUK <- function() {
+nonUKPopulationBreakdown <- function(annotate = FALSE) {
   locations <- data.frame(
     area = c(
       rep("EU", 4), 
@@ -42,37 +42,43 @@ populationBreakdownNonUK <- function() {
       panel.background = element_blank(),
       legend.position = "none") +
     coord_polar(theta = "y") + 
-    ggtitle("Population by non-UK nationality \n year ending June 2017") +
+    ggtitle("Population by non-UK nationality year ending June 2017") +
     scale_fill_ptol()
   
-  breakdownPlot <- breakdownPlot + 
-    annotate(
-      "text", x = 2.5, y = 50, label = "EU",
-      color = "white", size = 4)  +
-    annotate(
-      "text", x = 2.5, y = 107.5, label = "Non-EU",
-      color = "white", size = 4)  +
-    annotate(
-      "text", x = 3.5, y = 25, label = "EU8",
-      color = "white", size = 4) +
-    annotate(
-      "text", x = 3.5, y = 75, label = "EU14",
-      color = "white", size = 4) +
-    annotate(
-      "text", x = 3.5, y = 94, label = "EU2",
-      color = "white", size = 4) +
-    annotate(
-      "text", x = 3.5, y = 94, label = "EU2",
-      color = "white", size = 4) +
-    annotate(
-      "text", x = 3.5, y = 102, label = "RoW",
-      color = "white", size = 4) +
-    annotate(
-      "text", x = 3.5, y = 113, label = "Asia",
-      color = "white", size = 4) +
-    annotate(
-      "text", x = 5.5, y = 97, label = "Other Europe",
-      size = 4)
+  if (annotate) {
+    breakdownPlot <- breakdownPlot + 
+      annotate(
+        "text", x = 2.5, y = 50, label = "EU",
+        color = "white", size = 3)  +
+      annotate(
+        "text", x = 2.5, y = 107.5, label = "Non-EU",
+        color = "white", size = 3)  +
+      annotate(
+        "text", x = 3.5, y = 25, label = "EU8",
+        color = "white", size = 3) +
+      annotate(
+        "text", x = 3.5, y = 75, label = "EU14",
+        color = "white", size = 3) +
+      annotate(
+        "text", x = 3.5, y = 94, label = "EU2",
+        color = "white", size = 3) +
+      annotate(
+        "text", x = 3.5, y = 94, label = "EU2",
+        color = "white", size = 3) +
+      annotate(
+        "text", x = 3.5, y = 102, label = "RoW",
+        color = "white", size = 3) +
+      annotate(
+        "text", x = 3.5, y = 113, label = "Asia",
+        color = "white", size = 3) +
+      annotate(
+        "text", x = 5.5, y = 97, label = "Other Europe",
+        size = 3)
+  }
+  
+  ggsave(filename = getwd() %>% 
+           paste0('/images/raw/nonUKPopulationBreakdown.png'),
+         plot = breakdownPlot)
   
   return(breakdownPlot)
 }
