@@ -1,0 +1,191 @@
+[
+  {
+    "age": "0",
+    "persons2016": 125,
+    "persons2041": 115,
+    "persons2016.variant": 125,
+    "persons2041.variant": 110,
+    "persons2016.lowMigration": 125,
+    "persons2041.lowMigration": 107
+  },
+  {
+    "age": "5",
+    "persons2016": 128,
+    "persons2041": 113,
+    "persons2016.variant": 128,
+    "persons2041.variant": 108,
+    "persons2016.lowMigration": 128,
+    "persons2041.lowMigration": 105
+  },
+  {
+    "age": "10",
+    "persons2016": 113,
+    "persons2041": 115,
+    "persons2016.variant": 113,
+    "persons2041.variant": 110,
+    "persons2016.lowMigration": 113,
+    "persons2041.lowMigration": 107
+  },
+  {
+    "age": "15",
+    "persons2016": 118,
+    "persons2041": 118,
+    "persons2016.variant": 118,
+    "persons2041.variant": 114,
+    "persons2016.lowMigration": 118,
+    "persons2041.lowMigration": 112
+  },
+  {
+    "age": "20",
+    "persons2016": 119,
+    "persons2041": 115,
+    "persons2016.variant": 119,
+    "persons2041.variant": 111,
+    "persons2016.lowMigration": 119,
+    "persons2041.lowMigration": 110
+  },
+  {
+    "age": "25",
+    "persons2016": 124,
+    "persons2041": 121,
+    "persons2016.variant": 124,
+    "persons2041.variant": 116,
+    "persons2016.lowMigration": 124,
+    "persons2041.lowMigration": 114
+  },
+  {
+    "age": "30",
+    "persons2016": 124,
+    "persons2041": 122,
+    "persons2016.variant": 124,
+    "persons2041.variant": 117,
+    "persons2016.lowMigration": 124,
+    "persons2041.lowMigration": 113
+  },
+  {
+    "age": "35",
+    "persons2016": 120,
+    "persons2041": 107,
+    "persons2016.variant": 120,
+    "persons2041.variant": 102,
+    "persons2016.lowMigration": 120,
+    "persons2041.lowMigration": 98
+  },
+  {
+    "age": "40",
+    "persons2016": 120,
+    "persons2041": 111,
+    "persons2016.variant": 120,
+    "persons2041.variant": 106,
+    "persons2016.lowMigration": 120,
+    "persons2041.lowMigration": 101
+  },
+  {
+    "age": "45",
+    "persons2016": 131,
+    "persons2041": 118,
+    "persons2016.variant": 131,
+    "persons2041.variant": 113,
+    "persons2016.lowMigration": 131,
+    "persons2041.lowMigration": 109
+  },
+  {
+    "age": "50",
+    "persons2016": 131,
+    "persons2041": 122,
+    "persons2016.variant": 131,
+    "persons2041.variant": 120,
+    "persons2016.lowMigration": 131,
+    "persons2041.lowMigration": 117
+  },
+  {
+    "age": "55",
+    "persons2016": 116,
+    "persons2041": 121,
+    "persons2016.variant": 116,
+    "persons2041.variant": 119,
+    "persons2016.lowMigration": 116,
+    "persons2041.lowMigration": 117
+  },
+  {
+    "age": "60",
+    "persons2016": 97,
+    "persons2041": 115,
+    "persons2016.variant": 97,
+    "persons2041.variant": 113,
+    "persons2016.lowMigration": 97,
+    "persons2041.lowMigration": 112
+  },
+  {
+    "age": "65",
+    "persons2016": 89,
+    "persons2041": 112,
+    "persons2016.variant": 89,
+    "persons2041.variant": 110,
+    "persons2016.lowMigration": 89,
+    "persons2041.lowMigration": 110
+  },
+  {
+    "age": "70",
+    "persons2016": 77,
+    "persons2041": 115,
+    "persons2016.variant": 77,
+    "persons2041.variant": 114,
+    "persons2016.lowMigration": 77,
+    "persons2041.lowMigration": 113
+  },
+  {
+    "age": "75",
+    "persons2016": 55,
+    "persons2041": 104,
+    "persons2016.variant": 55,
+    "persons2041.variant": 104,
+    "persons2016.lowMigration": 55,
+    "persons2041.lowMigration": 104
+  },
+  {
+    "age": "80",
+    "persons2016": 40,
+    "persons2041": 78,
+    "persons2016.variant": 40,
+    "persons2041.variant": 78,
+    "persons2016.lowMigration": 40,
+    "persons2041.lowMigration": 78
+  },
+  {
+    "age": "85",
+    "persons2016": 24,
+    "persons2041": 48,
+    "persons2016.variant": 24,
+    "persons2041.variant": 48,
+    "persons2016.lowMigration": 24,
+    "persons2041.lowMigration": 48
+  },
+  {
+    "age": "90",
+    "persons2016": 10,
+    "persons2041": 25,
+    "persons2016.variant": 10,
+    "persons2041.variant": 25,
+    "persons2016.lowMigration": 10,
+    "persons2041.lowMigration": 25
+  },
+  {
+    "age": "95",
+    "persons2016": 2,
+    "persons2041": 8,
+    "persons2016.variant": 2,
+    "persons2041.variant": 8,
+    "persons2016.lowMigration": 2,
+    "persons2041.lowMigration": 8
+  },
+  {
+    "age": "100+",
+    "persons2016": 0,
+    "persons2041": 1,
+    "persons2016.variant": 0,
+    "persons2041.variant": 1,
+    "persons2016.lowMigration": 0,
+    "persons2041.lowMigration": 1
+  }
+]
