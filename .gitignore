@@ -1,2 +1,6 @@
 .Rhistory
 .~lock.*
+*.tex
+*.log
+plots/
+models/*.R
