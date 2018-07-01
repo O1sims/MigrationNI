@@ -47,6 +47,12 @@ projectedPopulationPyramid <- function(future = FALSE) {
     variable.name = 'Gender',
     id.vars='Age')
   
+  titleFont <- element_text(
+    family = "Ariel")
+  axisFont <- element_text(
+    family = "Ariel",
+    size = 10)
+  
   populationPyramid <- ggplot(
     data = ageStructure, 
     aes(x = Age, y = `Population (1,000s)`, fill = Gender)) + 
@@ -57,9 +63,14 @@ projectedPopulationPyramid <- function(future = FALSE) {
       labels = paste0(as.character(
         c(seq(150, 25, -25), 0, seq(25, 150, 25))))) + 
     coord_flip() +
+    ggtitle("Estimated and projected age structure of the Northern Irish population, \n mid-2016 and mid-2041") +
     scale_fill_ptol() +
     theme_minimal() + 
-    theme(legend.position = "none")
+    theme(
+      plot.title = titleFont,
+      axis.title.x = axisFont,
+      axis.title.y = axisFont,
+      legend.position = "none")
   
   ggsave(filename = getwd() %>% 
            paste0('/images/raw/populationPyramid', 

@@ -17,6 +17,12 @@ getCurrentPopulationChange <- function() {
     paste0("/data/NIPopulationData.json") %>% 
     jsonlite::fromJSON()
   
+  titleFont <- element_text(
+    family = "Ariel")
+  axisFont <- element_text(
+    family = "Ariel",
+    size = 10)
+  
   currentPopulationChange <- ggplot(
     NIPopulationData[1:16, ], aes(year)) +
     geom_line(aes(y = naturalChangeNet/1000, colour = "Natural change")) +
@@ -27,8 +33,12 @@ getCurrentPopulationChange <- function() {
     xlab("Year") +
     ylab("Persons (1,000s)") +
     scale_color_ptol("") +
-    theme_minimal() +
-    theme(legend.position = "none")
+    theme_minimal() + 
+    theme(
+      plot.title = titleFont,
+      axis.title.x = axisFont,
+      axis.title.y = axisFont,
+      legend.position = "none")
   
   currentPopulationChange <- currentPopulationChange + annotate(
       "text", x = 2015, y = 2.5, label = "Net migration", 

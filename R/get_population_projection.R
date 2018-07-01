@@ -21,12 +21,18 @@ getPopulationProjection <- function(dotted = FALSE, breakSeq = 5) {
   
   lineType <- ifelse(dotted, 2, 1)
   
+  titleFont <- element_text(
+    family = "Ariel")
+  axisFont <- element_text(
+    family = "Ariel",
+    size = 10)
+  
   populationProjection <- ggplot(NIPopulationData[1:41, ], aes(year)) +
     geom_line(aes(y = naturalChangeNet/1000, colour = "Natural change"), 
               linetype = lineType) +
     geom_line(aes(y = rowMigrationNet/1000, colour = "Net UK migration"), 
               linetype = lineType) +
-    geom_line(aes(y = ukMigrationNet/1000, colour = "Net International migration"), 
+    geom_line(aes(y = ukMigrationNet/1000, colour = "Net international migration"), 
               linetype = lineType) +
     geom_vline(aes(xintercept = as.numeric(year[16])),
                linetype = 3, 
@@ -36,22 +42,26 @@ getPopulationProjection <- function(dotted = FALSE, breakSeq = 5) {
       NIPopulationData$year[1], 
       NIPopulationData$year[length(NIPopulationData$year)], 
       breakSeq)) +
-    ggtitle("Natural change and net migration") + 
+    ggtitle("Actual and projected natural change and net international \n and rest of UK migration in Northern Ireland") + 
     xlab("Year") +
     ylab("Persons (1,000s)") +
     scale_color_ptol("") +
     theme_minimal() + 
-    theme(legend.position = "none")
+    theme(
+      plot.title = titleFont,
+      axis.title.x = axisFont,
+      axis.title.y = axisFont,
+      legend.position = "none")
   
   populationProjection <- populationProjection + 
     annotate(
-      "text", x = 2036, y = 4, label = "Natural change", 
+      "text", x = 2037, y = 4, label = "Natural change", 
       colour = "#332288", size = 4) + 
     annotate(
       "text", x = 2036, y = 1.8, label = "Net UK migration", 
       colour = "#882255", size = 4) + 
     annotate(
-      "text", x = 2036, y = -1.5, label = "Net International migration", 
+      "text", x = 2036, y = -1.5, label = "Net international migration", 
       colour = "#999933", size = 4)
   
   ggsave(filename = getwd() %>% 

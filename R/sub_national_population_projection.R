@@ -21,6 +21,12 @@ subNationalPopulationProjection <- function() {
     yes = "negative",
     no = "positive")
   
+  titleFont <- element_text(
+    family = "Ariel")
+  axisFont <- element_text(
+    family = "Ariel",
+    size = 10)
+  
   subNationalProjection <- ggplot(
     data = subNationalPopulationChange, 
     aes(x = location, y = change)) + 
@@ -30,11 +36,15 @@ subNationalPopulationProjection <- function() {
     scale_fill_manual(
       values = c(positive = "steelblue", negative = "firebrick1")) + 
     coord_flip() +
-    theme_minimal() + 
-    theme(legend.position = "none") +
+    theme_minimal() +
     ggtitle("Sub-national projected percentage change \n in total population, 2016-2041") + 
     xlab("District") +
-    ylab("Population change (%)")
+    ylab("Population change (%)") + 
+    theme(
+      plot.title = titleFont,
+      axis.title.x = axisFont,
+      axis.title.y = axisFont,
+      legend.position = "none")
   
   ggsave(filename = getwd() %>% 
            paste0('/images/raw/subNationalProjection.png'),

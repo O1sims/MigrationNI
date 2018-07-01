@@ -11,7 +11,7 @@ library(ggthemes)
 library(magrittr)
 
 
-nonUKPopulationBreakdown <- function(annotate = FALSE) {
+nonUKPopulationBreakdown <- function(annotate = TRUE, donut = TRUE) {
   locations <- data.frame(
     area = c(
       rep("EU", 4), 
@@ -26,7 +26,11 @@ nonUKPopulationBreakdown <- function(annotate = FALSE) {
   locations$ymax <- locations$share %>% cumsum()
   locations$ymin <- c(0, head(locations$ymax, n = -1))
   
-  breakdownPlot <- ggplot2::ggplot(locations) +
+  titleFont <- element_text(
+    family = "Ariel")
+  
+  breakdownPlot <- ggplot(
+    data = locations) +
     xlim(c(0, 5.5)) + 
     geom_rect(
       aes(fill = partition, 
@@ -35,14 +39,15 @@ nonUKPopulationBreakdown <- function(annotate = FALSE) {
     geom_rect(
       aes(fill = area,
           ymax = ymax, ymin = ymin,
-          xmax = 3, xmin = 2)) + 
+          xmax = 3, xmin = ifelse(donut, 2, 0))) + 
     theme(
+      plot.title = titleFont,
       axis.text = element_blank(),
       axis.ticks = element_blank(),
       panel.background = element_blank(),
       legend.position = "none") +
     coord_polar(theta = "y") + 
-    ggtitle("Population by non-UK nationality year ending June 2017") +
+    ggtitle("Population by non-UK nationality, June 2017") +
     scale_fill_ptol()
   
   if (annotate) {

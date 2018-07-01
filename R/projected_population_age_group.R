@@ -2,6 +2,12 @@
 
 
 projectedPopulationAgeGroup <- function(region) {
+  titleFont <- element_text(
+    family = "Ariel")
+  axisFont <- element_text(
+    family = "Ariel",
+    size = 10)
+  
   if (region == "NI") {
     projections <- getwd() %>% 
       paste0("/data/PopulationProjections.json") %>% 
@@ -26,12 +32,15 @@ projectedPopulationAgeGroup <- function(region) {
     pensionableAgeChange.lowMigration <- ((sum(projections$persons2041.lowMigration[14:21]) / sum(projections$persons2016.lowMigration[14:21])) - 1) * 100
     
     ageGroupPopProjection <- data.frame(
-      projection = factor(c(rep(c("Principal projection", "50% future EU migration variant", "Low migration variant"), 4))),
-      ageGroup = factor(c(rep("Total population", 3), rep("Children", 3), rep("Working age", 3), rep("Pensionable age", 3))),
-      populationChange = c(totalPopulationChange, totalPopulationChange.variant, totalPopulationChange.lowMigration,
-                           childrenPopulationChange, childrenPopulationChange.variant, childrenPopulationChange.lowMigration,
+      projection = factor(c(rep(c("Principal projection", "50% future EU migration", "Low migration"), 4))),
+      ageGroup = factor(c(rep("Children", 3), rep("Total population", 3), rep("Working age", 3), rep("Pensionable age", 3))),
+      populationChange = c(childrenPopulationChange, childrenPopulationChange.variant, childrenPopulationChange.lowMigration,
+                           totalPopulationChange, totalPopulationChange.variant, totalPopulationChange.lowMigration,
                            workingAgePopulationChange, workingAgePopulationChange.variant, workingAgePopulationChange.lowMigration,
                            pensionableAgeChange, pensionableAgeChange.variant, pensionableAgeChange.lowMigration))
+    
+    ageGroupPopProjection$ageGroup %<>% 
+      factor(levels = c("Total population", "Children", "Working age", "Pensionable age"))
     
     populationChangeBar <- ggplot(
       data = ageGroupPopProjection, 
@@ -44,8 +53,11 @@ projectedPopulationAgeGroup <- function(region) {
       xlab("Age group") +
       ylab("Percentage population change") +
       scale_fill_ptol() +
-      theme_minimal() +
+      theme_minimal()+
       theme(
+        plot.title = titleFont,
+        axis.title.x = axisFont,
+        axis.title.y = axisFont,
         legend.title = element_blank(),
         legend.position = "top",
         legend.key = element_rect(size = 0),
@@ -53,10 +65,12 @@ projectedPopulationAgeGroup <- function(region) {
     
   } else if (region == "UK") {
     ukGroupPopulationChange <- data.frame(
-      projection = factor(c(rep(c("Principal projection", "50% future EU migration variant"), 4))),
-      ageGroup = factor(c(rep("Total population", 2), rep("Children", 2), rep("Working age", 2), 
-                          rep("Pensionable age", 2))),
-      populationChange = c(11.1, 8.9, 2.1, -0.6, 7.7, 5.3, 30.9, 30.5))
+      projection = factor(c(rep(c("Principal projection", "50% future EU migration", "Low migration"), 4))),
+      ageGroup = factor(c(rep("Total population", 3), rep("Children", 3), rep("Working age", 3), rep("Pensionable age", 3))),
+      populationChange = c(11.1, 8.9, 6.8, 2.1, -0.6, -1.1, 7.7, 5.3, 4.1, 30.9, 30.5, 30.3))
+    
+    ukGroupPopulationChange$ageGroup %<>% 
+      factor(levels = c("Total population", "Children", "Working age", "Pensionable age"))
     
     populationChangeBar <- ggplot(
       data = ukGroupPopulationChange, 
@@ -71,6 +85,9 @@ projectedPopulationAgeGroup <- function(region) {
       scale_fill_ptol() +
       theme_minimal() +
       theme(
+        plot.title = titleFont,
+        axis.title.x = axisFont,
+        axis.title.y = axisFont,
         legend.title = element_blank(),
         legend.position = "top",
         legend.key = element_rect(size = 0),
