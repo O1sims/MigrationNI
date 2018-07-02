@@ -4,3 +4,4 @@
 *.log
 plots/
 models/*.R
+*.html
