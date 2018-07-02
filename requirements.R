@@ -21,8 +21,7 @@ cranRepo <- 'http://cran.us.r-project.org'
 if (!("devtools" %in% installed.packages())) {
   utils::install.packages(
     "devtools",
-    repos = cranRepo
-  )
+    repos = cranRepo)
 }
 
 # CRAN packges to install with versions
@@ -35,8 +34,7 @@ packageList <- list(
   "nleqslv" = "	3.3.2",
   "Matrix" = "1.2-14",
   "MASS" = "7.3-50",
-  "Rcpp" = "0.12.17"
-)
+  "Rcpp" = "0.12.17")
 
 # Generate an array of packages that have not already been installed
 newPackages <- subset(names(packageList), 
@@ -48,12 +46,11 @@ if (length(newPackages) > 0) {
     devtools::install_version(
       package = package,
       version = packageList[[package]],
-      repos = cranRepo
-    )
+      repos = cranRepo)
   }
 }
 
-# Install gEcon from source
+# Install gEcon from source (Ubuntu)
 install.packages(
   "http://gecon.r-forge.r-project.org/files/gEcon_1.1.0.tar.gz",
   repos = NULL, 
