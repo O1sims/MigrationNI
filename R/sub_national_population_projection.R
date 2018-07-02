@@ -7,10 +7,12 @@ library(ggthemes)
 library(ggplot2)
 
 
-subNationalPopulationProjection <- function() {
+subNationalPopulationProjection <- function(restricted = FALSE) {
   subNationalPopulationChange <- getwd() %>% 
     paste0("/data/DistrictPopulationChange.json") %>% 
     jsonlite::fromJSON()
+  
+  if (restricted) subNationalPopulationChange %<>% `[`(-c(3, 10, 8), )
   
   subNationalPopulationChange$change = (
     subNationalPopulationChange$population2041/subNationalPopulationChange$population2016 - 1
@@ -37,7 +39,7 @@ subNationalPopulationProjection <- function() {
       values = c(positive = "steelblue", negative = "firebrick1")) + 
     coord_flip() +
     theme_minimal() +
-    ggtitle("Sub-national projected percentage change \n in total population, 2016-2041") + 
+    ggtitle("Sub-national projected percentage change in \n total population, 2016-2041") + 
     xlab("District") +
     ylab("Population change (%)") + 
     theme(
@@ -47,7 +49,8 @@ subNationalPopulationProjection <- function() {
       legend.position = "none")
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/subNationalProjection.png'),
+           paste0('/images/raw/subNationalProjection', 
+                  ifelse(restricted, '-restricted', ''),'.png'),
          plot = subNationalProjection)
   
   return(subNationalProjection)
