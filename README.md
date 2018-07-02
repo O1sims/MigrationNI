@@ -14,7 +14,7 @@ All data used in this study can be found in the `data` directory of this reposit
 
 - UK-wide regional data and migration variants are collected from the [Office of National Statistics (ONS)](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/bulletins/nationalpopulationprojections/2016basedstatisticalbulletin). 
 
-- County and parliamentary-level map data are gathered from [Open Data Northern Ireland (ODNI)](https://www.opendatani.gov.uk/dataset/osni-open-data-largescale-boundaries-ni-outline1).
+- County and parliamentary-level map data for Northern Ireland are gathered from [Open Data Northern Ireland (ODNI)](https://www.opendatani.gov.uk/dataset/osni-open-data-largescale-boundaries-ni-outline1).
 
 ## Install requirements
 
