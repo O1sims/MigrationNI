@@ -18,6 +18,9 @@ subNationalPopulationProjection <- function(restricted = FALSE) {
     subNationalPopulationChange$population2041/subNationalPopulationChange$population2016 - 1
     ) * 100
   
+  subNationalPopulationChange$location %<>% factor(
+    levels = subNationalPopulationChange[order(subNationalPopulationChange$change), ]$location)
+  
   subNationalPopulationChange$colour <- ifelse(
     test = subNationalPopulationChange$change < 0, 
     yes = "negative",

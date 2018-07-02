@@ -35,7 +35,7 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
     aes(x = long, y = lat, 
         group = group, fill = count)) + 
     geom_polygon(
-      colour = "black", 
+      colour = "white", 
       size = 0.5, 
       aes(group = group)) + 
     theme(
