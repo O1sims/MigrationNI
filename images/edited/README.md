@@ -6,6 +6,8 @@ We provide an overview of each Figure derived from the data. The Figures produce
 
 #### Figure 1. Natural change and net migration, Northern Ireland, 2001-2016
 
+![](./01-current-natural-change-net-migration.png =250x)
+
 **Source:** Mid-Year Population Estimates, Components of Population change (October, 2017), NISRA.
 
 
