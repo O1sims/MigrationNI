@@ -72,7 +72,7 @@ getTotalPopulationProjection <- function(dotted = FALSE) {
       axis.title.y = axisFont,
       legend.position = "none")
   
-  totalPopulationProjection + 
+  totalPopulationProjection <- totalPopulationProjection + 
     annotate(
       "text", x = 2090, y = 2250, label = "High migration", 
       colour = "#332288", size = 4) + 
