@@ -27,7 +27,7 @@ Note that this installation script is only written for Ubuntu.
 
 ## Resulting figures
 
-The charts and graphics can be found in the [`figures/editied`](https://github.com/O1sims/MigrationNI/tree/master/figures/edited) directory. Here you will find another Markdown file documenting each figures.
+The charts and graphics can be found in the [`figures/editied`](https://github.com/O1sims/MigrationNI/tree/master/figures/edited) directory. Here, you will find another [README](https://github.com/O1sims/MigrationNI/tree/master/figures/edited/README.md) file which documents each figure.
 
 ## Contact
 
