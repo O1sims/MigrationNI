@@ -46,9 +46,9 @@ getTotalPopulationProjection <- function(dotted = FALSE) {
   lineType <- ifelse(dotted, 2, 1)
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   axisFont <- element_text(
-    family = "Ariel",
+    family = "Arial",
     size = 10)
   
   totalPopulationProjection <- ggplot(
@@ -84,7 +84,7 @@ getTotalPopulationProjection <- function(dotted = FALSE) {
       colour = "#999933", size = 4)
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/totalPopulationProjection', 
+           paste0('/figures/raw/totalPopulationProjection', 
                   ifelse(dotted, '-dotted', ''), '.png'),
          plot = totalPopulationProjection)
   

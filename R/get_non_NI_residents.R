@@ -10,9 +10,9 @@ getNonNIResidents <- function() {
     stringsAsFactors = FALSE)
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   axisFont <- element_text(
-    family = "Ariel",
+    family = "Arial",
     size = 10)
   
   nonNIResidentsPlot <- ggplot(
@@ -40,7 +40,7 @@ getNonNIResidents <- function() {
       colour = "#882255", size = 4)
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/nonNIResidents.png'),
+           paste0('/figures/raw/nonNIResidents.png'),
          plot = nonNIResidentsPlot)
   
   return(nonNIResidentsPlot)

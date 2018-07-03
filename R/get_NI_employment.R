@@ -19,9 +19,9 @@ getNIEmployment <- function() {
     reshape2::melt(id.var = "year")
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   axisFont <- element_text(
-    family = "Ariel",
+    family = "Arial",
     size = 10)
   
   employmentPlot <- ggplot(
@@ -50,7 +50,7 @@ getNIEmployment <- function() {
       legend.key.size = unit(1, 'lines'))
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/NIEmployment-stacked.png'),
+           paste0('/figures/raw/NIEmployment-stacked.png'),
          plot = employmentPlot)
   
   return(employmentPlot)

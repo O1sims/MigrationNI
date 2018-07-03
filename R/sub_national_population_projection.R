@@ -27,9 +27,9 @@ subNationalPopulationProjection <- function(restricted = FALSE) {
     no = "positive")
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   axisFont <- element_text(
-    family = "Ariel",
+    family = "Arial",
     size = 10)
   
   subNationalProjection <- ggplot(
@@ -52,7 +52,7 @@ subNationalPopulationProjection <- function(restricted = FALSE) {
       legend.position = "none")
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/subNationalProjection', 
+           paste0('/figures/raw/subNationalProjection', 
                   ifelse(restricted, '-restricted', ''),'.png'),
          plot = subNationalProjection)
   

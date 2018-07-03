@@ -5,9 +5,9 @@ getRealGDP <- function() {
     jsonlite::fromJSON()
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   axisFont <- element_text(
-    family = "Ariel",
+    family = "Arial",
     size = 10)
   
   realGDPPlot <- ggplot(
@@ -46,7 +46,7 @@ getRealGDP <- function() {
       colour = "#332288", size = 4)
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/realGDP.png'),
+           paste0('/figures/raw/realGDP.png'),
          plot = realGDPPlot)
   
   return(realGDPPlot)

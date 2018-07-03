@@ -27,7 +27,7 @@ nonUKPopulationBreakdown <- function(annotate = TRUE, donut = TRUE) {
   locations$ymin <- c(0, head(locations$ymax, n = -1))
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   
   breakdownPlot <- ggplot(
     data = locations) +
@@ -82,7 +82,7 @@ nonUKPopulationBreakdown <- function(annotate = TRUE, donut = TRUE) {
   }
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/nonUKPopulationBreakdown.png'),
+           paste0('/figures/raw/nonUKPopulationBreakdown.png'),
          plot = breakdownPlot)
   
   return(breakdownPlot)

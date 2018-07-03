@@ -22,9 +22,9 @@ getPopulationProjection <- function(dotted = FALSE, breakSeq = 5) {
   lineType <- ifelse(dotted, 2, 1)
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   axisFont <- element_text(
-    family = "Ariel",
+    family = "Arial",
     size = 10)
   
   populationProjection <- ggplot(NIPopulationData[1:41, ], aes(year)) +
@@ -65,7 +65,7 @@ getPopulationProjection <- function(dotted = FALSE, breakSeq = 5) {
       colour = "#999933", size = 4)
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/populationProjection', 
+           paste0('/figures/raw/populationProjection', 
                   ifelse(dotted, '-dotted', ''), '.png'),
          plot = populationProjection)
   

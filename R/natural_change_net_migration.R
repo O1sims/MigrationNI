@@ -18,9 +18,9 @@ getCurrentPopulationChange <- function() {
     jsonlite::fromJSON()
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   axisFont <- element_text(
-    family = "Ariel",
+    family = "Arial",
     size = 10)
   
   currentPopulationChange <- ggplot(
@@ -48,7 +48,7 @@ getCurrentPopulationChange <- function() {
       colour = "#332288", size = 4)
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/currentPopulationChange.png'),
+           paste0('/figures/raw/currentPopulationChange.png'),
          plot = currentPopulationChange)
   
   return(currentPopulationChange)

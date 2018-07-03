@@ -4,7 +4,7 @@
 
 This repository contains empirical data and analysis on Northern Irish migration that complements a [recent article](/references/scotlands-populaiton-needs-and-migraiton-policy.pdf) published by the Scottish government on migration policy. The article essentially looked for a regionally tailored system of migration for their own country. They found the economic cost of reduced migration, particularly due to the impact of Brexit, would be in the region of almost £5bn per year by 2040. The same analysis should be done for Northern Ireland.
 
-The purpose of this repositorty is to produce a number of models, charts and graphics that complement the Scottish study for the case of Northern Ireland. 
+The purpose of this repositorty is to produce a number of models, charts and graphics that complement the Scottish study for the case of Northern Ireland.
 
 ## Data
 
@@ -12,7 +12,7 @@ All data used in this study can be found in the `data` directory of this reposit
 
 - Long-term migration statistics are collected from the [Northern Ireland Statistics and Research Agency (NISRA)](https://www.nisra.gov.uk/statistics/population/long-term-international-migration-statistics).
 
-- UK-wide regional data and migration variants are collected from the [Office of National Statistics (ONS)](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/bulletins/nationalpopulationprojections/2016basedstatisticalbulletin). 
+- UK-wide regional data and migration variants are collected from the [Office of National Statistics (ONS)](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/bulletins/nationalpopulationprojections/2016basedstatisticalbulletin).
 
 - County and parliamentary-level map data for Northern Ireland are gathered from [Open Data Northern Ireland (ODNI)](https://www.opendatani.gov.uk/dataset/osni-open-data-largescale-boundaries-ni-outline1).
 
@@ -25,9 +25,9 @@ Rscript requirements.R
 ```
 Note that this installation script is only written for Ubuntu.
 
-## Resulting images
+## Resulting figures
 
-The charts and graphics can be found in the [`images/editied`](https://github.com/O1sims/MigrationNI/tree/master/images/edited) directory. Here you will find another Markdown file documenting each image.
+The charts and graphics can be found in the [`figures/editied`](https://github.com/O1sims/MigrationNI/tree/master/figures/edited) directory. Here you will find another Markdown file documenting each figures.
 
 ## Contact
 

@@ -10,9 +10,9 @@ getNetMigrationProjection <- function(dotted = FALSE, breakSeq = 5) {
   lineType <- ifelse(dotted, 2, 1)
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   axisFont <- element_text(
-    family = "Ariel",
+    family = "Arial",
     size = 10)
   
   netMigrationProjections <- ggplot(
@@ -54,7 +54,7 @@ getNetMigrationProjection <- function(dotted = FALSE, breakSeq = 5) {
       colour = "#999933", size = 4)
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/netMigrationProjections',
+           paste0('/figures/raw/netMigrationProjections',
                   ifelse(dotted, '-dotted', ''), '.png'),
          plot = netMigrationProjections)
   

@@ -3,9 +3,9 @@
 
 projectedPopulationAgeGroup <- function(region) {
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   axisFont <- element_text(
-    family = "Ariel",
+    family = "Arial",
     size = 10)
   
   if (region == "NI") {
@@ -95,7 +95,7 @@ projectedPopulationAgeGroup <- function(region) {
   }
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/populationChangeBar-', region, '.png'),
+           paste0('/figures/raw/populationChangeBar-', region, '.png'),
          plot = populationChangeBar)
   
   return(populationChangeBar)

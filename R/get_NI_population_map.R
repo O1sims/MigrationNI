@@ -27,7 +27,7 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
     rate = 1))
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   
   # Plot NI map
   mapPlot <- ggplot(
@@ -55,7 +55,7 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
   
   # Save map
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/populationMap.png'),
+           paste0('/figures/raw/populationMap.png'),
          plot = mapPlot)
   
   return(mapPlot)

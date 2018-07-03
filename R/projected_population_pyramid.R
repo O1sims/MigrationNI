@@ -48,9 +48,9 @@ projectedPopulationPyramid <- function(future = FALSE) {
     id.vars='Age')
   
   titleFont <- element_text(
-    family = "Ariel")
+    family = "Arial")
   axisFont <- element_text(
-    family = "Ariel",
+    family = "Arial",
     size = 10)
   
   populationPyramid <- ggplot(
@@ -73,7 +73,7 @@ projectedPopulationPyramid <- function(future = FALSE) {
       legend.position = "none")
   
   ggsave(filename = getwd() %>% 
-           paste0('/images/raw/populationPyramid', 
+           paste0('/figures/raw/populationPyramid', 
                   ifelse(future, '-2041', '-2016'), '.png'),
          plot = populationPyramid)
   
