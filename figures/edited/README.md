@@ -51,7 +51,7 @@ Due to the financial crisis, employment fell by 40,000 between Q1 2008 and Q2 20
 
 **Source:** *Northern Ireland Principal Population Projection Summary (October, 2017), ONS*
 
-Inward migration brings benefits to Northern Irelands demography, economy and society. The demographic benefits of migration are made clear in projections from the ONS regarding Northern Ireland's future population growth. This Figure demonstrates these projected trends.
+Inward migration brings benefits to Northern Ireland's demography, economy and society. The demographic benefits of migration are made clear in projections from the ONS regarding Northern Ireland's future population growth. This Figure demonstrates these projected trends.
 
 There are projected to be more deaths than births in every year going forward. Each year for the next 25 years all of Northern Ireland's population growth is projected to come from migration. UK Government policy and the impact of Brexit means that international migration to Northern Ireland is projected to decline, further inhibiting Northern Ireland's population growth.
 
