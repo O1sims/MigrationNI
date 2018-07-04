@@ -1,5 +1,7 @@
+#' @import ggplot2, ggthemes, magrittr
 
-getRealGDP <- function() {
+
+getRealGDPChange <- function() {
   projectedRealGDP <- getwd() %>% 
     paste0("/data/ProjectedRealGDP.json") %>% 
     jsonlite::fromJSON()

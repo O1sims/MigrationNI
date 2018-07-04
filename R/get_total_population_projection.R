@@ -3,12 +3,7 @@
 #' @description A line chart that shows the actual and projected population
 #'     of Northern Ireland between 1901 and 2116.
 #'     
-#' @source
-
-
-library(ggplot2)
-library(ggthemes)
-library(magrittr)
+#' @import ggplot2, ggthemes, magrittr
 
 
 getTotalPopulationProjection <- function(dotted = FALSE) {

@@ -1,5 +1,6 @@
 #' @title Northern Irish net overseas migration, historical data and projections
-
+#' 
+#' @import ggplot2, ggthemes, magrittr
 
 
 getNetMigrationProjection <- function(dotted = FALSE, breakSeq = 5) {

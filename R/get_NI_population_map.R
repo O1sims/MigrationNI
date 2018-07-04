@@ -1,7 +1,3 @@
-library(ggplot2)
-library(rgdal)
-
-
 getNIPopulationMap <- function(mapType = "parliamentaries") {
   mapDataLocation <- ifelse(
     test = mapType == "parliamentaries",

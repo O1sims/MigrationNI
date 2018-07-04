@@ -1,10 +1,6 @@
-# Sub-national projected percentage change in total population
-
-
-
-library(magrittr)
-library(ggthemes)
-library(ggplot2)
+#' Sub-national projected percentage change in total population
+#'
+#' @import ggplot2, ggthemes, magrittr
 
 
 subNationalPopulationProjection <- function(restricted = FALSE) {

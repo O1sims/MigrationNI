@@ -1,8 +1,3 @@
-library(ggplot2)
-library(ggthemes)
-library(magrittr)
-
-
 getNIBirths <- function() {
   NIbirths <- data.frame(
     year <- seq(1997, 2016),

@@ -7,14 +7,14 @@
 #'         (2) The goods market is now written as:
 #'             Y_P[] = (1 - tau * k_Y - g_Y) * C[] + tau * k_Y * I[] +
 #'                 g_Y * epsilon_G[] + k_Y * r_k_bar * r_k[] * psi.
-
-
-library(gEcon)
+#'                 
+#' @import gEcon
 
 
 calculateDSGEModel <- function () {
   sw_gecon <- make_model(
-    filename = paste0(getwd(), "/models/DSGE_model.gcn"))
+    filename = getwd() %>%
+      paste0("/models/DSGE_model.gcn"))
   
   # Set the initial parameters
   initv <- list(

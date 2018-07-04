@@ -6,12 +6,7 @@
 #'      migration (UK inflows - UK outflows) for Northern Ireland between 2001 and 2041.
 #'      All data points after 2016 are projected.
 #'     
-#' @source 
-
-
-library(ggplot2)
-library(ggthemes)
-library(magrittr)
+#' @import ggplot2, ggthemes, magrittr
 
 
 getPopulationProjection <- function(dotted = FALSE, breakSeq = 5) {

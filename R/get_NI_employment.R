@@ -1,8 +1,3 @@
-library(reshape2)
-library(ggplot2)
-
-
-
 getNIEmployment <- function() {
   NIEmployment <- data.frame(
     year = seq(2008, 2017, 0.25),

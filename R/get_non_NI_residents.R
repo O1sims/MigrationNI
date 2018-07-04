@@ -1,7 +1,3 @@
-library(ggplot2)
-library(ggthemes)
-
-
 getNonNIResidents <- function() {
   nonNIResidents <- data.frame(
     year = seq(2007, 2016),

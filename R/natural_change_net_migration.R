@@ -4,12 +4,7 @@
 #'     and the net migration (inflows - outflows) for Northern Ireland between
 #'     2001 and 2016
 #'     
-#' @source 
-
-
-library(magrittr)
-library(ggthemes)
-library(ggplot2)
+#' @import ggplot2, ggthemes, magrittr
 
 
 getCurrentPopulationChange <- function() {

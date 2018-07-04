@@ -1,4 +1,4 @@
-
+#' @import ggplot2, ggthemes, magrittr
 
 
 projectedPopulationAgeGroup <- function(region) {

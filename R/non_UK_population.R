@@ -3,12 +3,7 @@
 #' @description A donut chart showing the break-down of non-UK nationalities in NI. 
 #'     This chart is representative of Page 7 of the Scotland document.
 #'     
-#' @source 
-
-
-library(ggplot2)
-library(ggthemes)
-library(magrittr)
+#' @import ggplot2, ggthemes, magrittr
 
 
 nonUKPopulationBreakdown <- function(annotate = TRUE, donut = TRUE) {

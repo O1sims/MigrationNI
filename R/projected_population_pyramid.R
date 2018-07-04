@@ -2,13 +2,7 @@
 #' 
 #' @description An age pyramid chart showing the age population densities for both males and females.
 #'
-#' @source 
-
-
-library(ggplot2)
-library(ggthemes)
-library(reshape2)
-library(magrittr)
+#' @import ggplot2, ggthemes, magrittr, reshape2
 
 
 projectedPopulationPyramid <- function(future = FALSE) {
