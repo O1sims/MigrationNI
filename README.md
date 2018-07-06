@@ -1,3 +1,5 @@
+<img src="https://github.com/O1sims/MigrationNI/raw/master/presentation/images/cbi-logo-blue.png" height="66.5px" width="140px" align="right" />
+
 # Northern Irish migration study
 
 ## Overview
@@ -31,11 +33,15 @@ You can run the full analysis and generate the figures using the `main.R` script
 ```
 cd <path/to/MigrationNI>
 Rscript main.R
-```
+``` 
 
 ## Resulting figures
 
 The charts and graphics can be found in the [`figures/editied`](https://github.com/O1sims/MigrationNI/tree/master/figures/edited) directory. Here, you will find another [README](https://github.com/O1sims/MigrationNI/tree/master/figures/edited/README.md) file which documents each figure.
+
+## Presentation
+
+A short presentation was delivered to the CBI Northern Ireland on the impact of Brexit to the Northern Irish economy. This provides a brief overview of the impact of Brexit on three important economic areas: migration, trade and investment. A PDF and an ODP version of the presentation can be found in the [`presentation`](https://github.com/O1sims/MigrationNI/tree/master/presentation) directory.
 
 ## Contact
 
