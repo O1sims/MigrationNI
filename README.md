@@ -1,8 +1,10 @@
+<img src="https://github.com/O1sims/MigrationNI/raw/master/presentation/images/cbi-logo.png" height="75px" width="160px" align="right" />
+
 # Northern Irish migration study
 
 ## Overview
 
-This repository contains empirical data and analysis on Northern Irish migration that complements a [recent article](/references/scotlands-populaiton-needs-and-migraiton-policy.pdf) published by the Scottish government on migration policy. The article essentially looked for a regionally tailored system of migration for their own country. They found the economic cost of reduced migration, particularly due to the impact of Brexit, would be in the region of almost £5bn per year by 2040. The same analysis should be done for Northern Ireland.
+This repository contains empirical data and analysis on Northern Irish migration that complements a [recent article](/references/scotlands-populaiton-needs-and-migraiton-policy.pdf) published by the Scottish government on migration policy. The article looks for a regionally tailored system of migration for Scotland. They find the economic cost of reduced migration, particularly due to the impact of Brexit, would be in the region of almost £5bn per year by 2040. The same analysis should be done for Northern Ireland.
 
 The purpose of this repositorty is to produce a number of models, charts and figures that complement the Scottish study for the case of Northern Ireland.
 
@@ -16,9 +18,11 @@ All data used in this study can be found in the `data` directory of this reposit
 
 - County and parliamentary-level map data for Northern Ireland are gathered from [Open Data Northern Ireland (ODNI)](https://www.opendatani.gov.uk/dataset/osni-open-data-largescale-boundaries-ni-outline1).
 
+A complete list of all data sources can be found [here](https://github.com/O1sims/MigrationNI/tree/master/figures/edited/README.md).
+
 ## Requirements
 
-We use `R` as the primary language for performing the analysis. Due to this, [base `R`](https://www.r-project.org/) needs to be installed. Moreover, a small number of `R` packages are required to run the analysis. These can be installed by running the `requirements.R` script, which can be found at the root of the `MigrationNI` directory. Therefore, from the terminal:
+We use `R` as the primary language for performing econometric and statistical analysis. To reproduce the figures and analysis, [base `R`](https://www.r-project.org/) needs to be installed. Moreover, a small number of `R` packages are required to run the analysis. These can be installed by running the `requirements.R` script, which can be found at the root of the `MigrationNI` directory. Therefore, from the terminal:
 ```
 cd <path/to/MigrationNI>
 Rscript requirements.R
@@ -31,11 +35,15 @@ You can run the full analysis and generate the figures using the `main.R` script
 ```
 cd <path/to/MigrationNI>
 Rscript main.R
-```
+``` 
 
 ## Resulting figures
 
-The charts and graphics can be found in the [`figures/editied`](https://github.com/O1sims/MigrationNI/tree/master/figures/edited) directory. Here, you will find another [README](https://github.com/O1sims/MigrationNI/tree/master/figures/edited/README.md) file which documents each figure.
+The resulting charts and figures can be found in the [`figures/editied`](https://github.com/O1sims/MigrationNI/tree/master/figures/edited) directory. Here, you will find another [README](https://github.com/O1sims/MigrationNI/tree/master/figures/edited/README.md) file which documents each figure.
+
+## Presentation
+
+A presentation was delivered to the CBI Northern Ireland on the impact of Brexit to the Northern Irish economy. This provided a brief overview of the impact of Brexit on three important economic areas: migration, trade and investment. A PDF and an ODP version of the presentation can be found in the [`presentation`](https://github.com/O1sims/MigrationNI/tree/master/presentation) directory.
 
 ## Contact
 
