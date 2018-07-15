@@ -35,10 +35,11 @@ subNationalPopulationProjection <- function(restricted = FALSE) {
       stat = "identity", position = "identity", 
       aes(fill = colour)) +
     scale_fill_manual(
-      values = c(positive = "steelblue", negative = "firebrick1")) + 
+      values = c(
+        positive = "steelblue", 
+        negative = "firebrick1")) + 
     coord_flip() +
     theme_minimal() +
-    ggtitle("Sub-national projected percentage change in \n total population, 2016-2041") + 
     xlab("District") +
     ylab("Population change (%)") + 
     theme(
@@ -48,7 +49,7 @@ subNationalPopulationProjection <- function(restricted = FALSE) {
       legend.position = "none")
   
   ggsave(filename = getwd() %>% 
-           paste0('/figures/raw/subNationalProjection', 
+           paste0('/figures/raw/10-district-population-projection', 
                   ifelse(restricted, '-restricted', ''),'.png'),
          plot = subNationalProjection)
   

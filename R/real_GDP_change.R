@@ -17,7 +17,6 @@ getRealGDPChange <- function() {
     geom_line(aes(y = UKGDP, colour = "UK real GDP")) +
     geom_line(aes(y = NIGDP, colour = "NI real GDP"), linetype = 2) +
     geom_hline(yintercept = 0, alpha = 0.25) +
-    ggtitle("Projected change in real GDP, Northern Ireland and rest of UK, 2016-2041") +
     xlab("Year") +
     ylab("Real GDP (%)") +
     scale_color_ptol("") +
@@ -34,21 +33,23 @@ getRealGDPChange <- function() {
   realGDPPlot <- realGDPPlot + 
     annotate(
       "text", x = 2038, y = -3.2, label = "Rest of UK", 
-      colour = "#882255",  size = 4) + 
+      colour = "#d6697b",  size = 4) + 
     annotate(
-      "text", x = 2035, y = -4, label = "Northern Ireland", 
-      colour = "#332288", size = 4) + 
+      "text", x = 2035, y = -5.1, label = "Northern Ireland", 
+      colour = "#4480aa", size = 4) + 
     annotate(
       "text", x = 2041, y = projectedRealGDP$UKGDP[rows], 
-      label = projectedRealGDP$UKGDP[rows] %>% paste0("%"), 
-      colour = "#882255", size = 4) + 
+      label = projectedRealGDP$UKGDP[rows] %>% 
+        paste0("%"), 
+      colour = "#d6697b", size = 4) + 
     annotate(
       "text", x = 2041, y = projectedRealGDP$NIGDP[rows], 
-      label = projectedRealGDP$NIGDP[rows] %>% paste0("%"), 
-      colour = "#332288", size = 4)
+      label = projectedRealGDP$NIGDP[rows] %>% 
+        paste0("%"), 
+      colour = "#4480aa", size = 4)
   
   ggsave(filename = getwd() %>% 
-           paste0('/figures/raw/realGDP.png'),
+           paste0('/figures/raw/15-real-GDP-impact.png'),
          plot = realGDPPlot)
   
   return(realGDPPlot)

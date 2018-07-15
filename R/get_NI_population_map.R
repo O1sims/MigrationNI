@@ -1,4 +1,9 @@
 getNIPopulationMap <- function(mapType = "parliamentaries") {
+  normaliseVector <- function(x) {
+    normalisation <- (x-min(x))/(max(x)-min(x))
+    return(normalisation * 100)
+  }
+  
   mapDataLocation <- ifelse(
     test = mapType == "parliamentaries",
     yes = "NI-parliamentary-boundaries",
@@ -14,13 +19,10 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
   ni_map <- ggplot2::fortify(model = ni)
   
   # Create population data
-  normaliseVector <- function(x) {
-    normalisation <- (x-min(x))/(max(x)-min(x))
-    return(normalisation * 100)
-  }
-  ni_map$count <- normaliseVector(rexp(
+  ni_map$count <- rexp(
     n = ni_map %>% nrow(), 
-    rate = 1))
+    rate = 1) %>% 
+    normaliseVector()
   
   titleFont <- element_text(
     family = "Arial")

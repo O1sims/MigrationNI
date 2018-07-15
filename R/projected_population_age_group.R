@@ -48,8 +48,7 @@ projectedPopulationAgeGroup <- function(region) {
       geom_bar(stat = "identity", position = position_dodge()) +
       geom_text(
         aes(label = paste0(round(populationChange, 1), "%")), 
-        position = position_dodge(width = 0.9), vjust = -0.75) + 
-      ggtitle("Projected population by age group, Northern Ireland, 2016-2041") +
+        position = position_dodge(width = 0.9), vjust = -0.75) +
       xlab("Age group") +
       ylab("Percentage population change") +
       scale_fill_ptol() +
@@ -78,8 +77,7 @@ projectedPopulationAgeGroup <- function(region) {
       geom_bar(stat = "identity", position = position_dodge()) +
       geom_text(
         aes(label = paste0(populationChange, "%")), 
-        position = position_dodge(width = 0.9), vjust = -0.75) + 
-      ggtitle("Projected population by age group, UK, 2016-2041") +
+        position = position_dodge(width = 0.9), vjust = -0.75) +
       xlab("Age group") +
       ylab("Percentage population change") +
       scale_fill_ptol() +

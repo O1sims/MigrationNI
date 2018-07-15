@@ -13,6 +13,13 @@ getNIEmployment <- function() {
     stringsAsFactors = FALSE) %>%
     reshape2::melt(id.var = "year")
   
+  totalEmp <- data.frame(
+    year = seq(2008, 2017, 0.25),
+    emp = c(0, 4000, -12000, -31000, -42000, -36000, -23000, -18000, -15000, -12000, -18000, -500, 4000, 2500, 
+            1000, 3000, -3000, 1000, -3000, -6000, -1000, -500, 2000, 4000, 8000, 15000, 7000, 15500, 10000, 
+            11000, 20000, 30000, 27000, 40000, 35000, 22000, 30000),
+    stringsAsFactors = FALSE)
+  
   titleFont <- element_text(
     family = "Arial")
   axisFont <- element_text(
@@ -20,11 +27,10 @@ getNIEmployment <- function() {
     size = 10)
   
   employmentPlot <- ggplot(
-    data = NIEmployment, 
-    aes(x = year, y = value/1000, fill = variable)) +
+    data = NIEmployment) +
     geom_bar(
-      stat = "identity", 
-      position = position_identity(), 
+      aes(x = year, y = value/1000, fill = variable),
+      stat = "identity",
       width = 0.1) +
     scale_x_continuous(breaks = seq(
       from = NIEmployment$year[1], 
@@ -34,7 +40,10 @@ getNIEmployment <- function() {
     xlab("Year") +
     ylab("Employment (1000's)") +
     scale_fill_ptol() +
-    theme_minimal() +
+    theme_minimal() + 
+    geom_line(
+      data = totalEmp, 
+      aes(x = year, y = emp/1000)) +
     theme(
       plot.title = titleFont,
       axis.title.x = axisFont,
@@ -45,7 +54,7 @@ getNIEmployment <- function() {
       legend.key.size = unit(1, 'lines'))
   
   ggsave(filename = getwd() %>% 
-           paste0('/figures/raw/NIEmployment-stacked.png'),
+           paste0('/figures/raw/NIEmployment-stacked-t.png'),
          plot = employmentPlot)
   
   return(employmentPlot)

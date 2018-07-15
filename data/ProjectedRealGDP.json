@@ -1,22 +1,22 @@
 [
   {
     "year": 2016,
-    "UKGDP": 0,
-    "NIGDP": 0
+    "UKGDP": 0.00,
+    "NIGDP": 0.00
   },
   {
     "year": 2020,
-    "UKGDP": -0.4,
-    "NIGDP": -0.6
+    "UKGDP": -0.44,
+    "NIGDP": -0.86
   },
   {
     "year": 2030,
-    "UKGDP": -2.2,
-    "NIGDP": -2.5
+    "UKGDP": -2.28,
+    "NIGDP": -3.05
   },
   {
     "year": 2040,
-    "UKGDP": -3.9,
-    "NIGDP": -4.5
+    "UKGDP": -3.85,
+    "NIGDP": -5.33
   }
 ]

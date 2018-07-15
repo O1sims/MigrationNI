@@ -8,6 +8,17 @@ getNetMigrationProjection <- function(dotted = FALSE, breakSeq = 5) {
     paste0("/data/NetMigrationData.json") %>% 
     jsonlite::fromJSON()
   
+  halfVariant <- c()
+  for (e in NetMigrationData$lowNetMigration) {
+    if (is.na(e)) {
+      halfVariant %<>% append(e)
+    } else {
+      halfVariant %<>% append(e + 2000)
+    }
+  }
+  
+  halfVariant[15] <- NetMigrationData$lowNetMigration[15]
+  
   lineType <- ifelse(dotted, 2, 1)
   
   titleFont <- element_text(
@@ -18,7 +29,7 @@ getNetMigrationProjection <- function(dotted = FALSE, breakSeq = 5) {
   
   netMigrationProjections <- ggplot(
     NetMigrationData, aes(year)) +
-    geom_line(aes(y = highNetMigration/1000, colour = "High net migration"),
+    geom_line(aes(y = halfVariant/1000, colour = "50% migration"),
               linetype = lineType) +
     geom_line(aes(y = lowNetMigration/1000, colour = "Low net migration"),
               linetype = lineType) +
@@ -32,7 +43,6 @@ getNetMigrationProjection <- function(dotted = FALSE, breakSeq = 5) {
       from = NetMigrationData$year[1], 
       to = NetMigrationData$year[length(NetMigrationData$year)], 
       by = breakSeq)) +
-    ggtitle("Northern Irish net overseas migration, historical and projections, 2001-2041") +
     xlab("Year") +
     ylab("Persons (1,000s)") +
     scale_color_ptol("") +
@@ -45,17 +55,17 @@ getNetMigrationProjection <- function(dotted = FALSE, breakSeq = 5) {
   
   netMigrationProjections <- netMigrationProjections + 
     annotate(
-      "text", x = 2036, y = 4.5, label = "High net migration", 
-      colour = "#332288", size = 4) + 
+      "text", x = 2036, y = -1.55, label = "50% EU migration", 
+      colour = "#4477aa", size = 4) + 
     annotate(
       "text", x = 2036, y = 1, label = "Projected net migration", 
-      colour = "#882255", size = 4) + 
+      colour = "#cc6677", size = 4) + 
     annotate(
       "text", x = 2036, y = -3.5, label = "Low net migration", 
-      colour = "#999933", size = 4)
+      colour = "#ddcc77", size = 4)
   
   ggsave(filename = getwd() %>% 
-           paste0('/figures/raw/netMigrationProjections',
+           paste0('/figures/raw/13-net-overseas-migration-projection',
                   ifelse(dotted, '-dotted', ''), '.png'),
          plot = netMigrationProjections)
   

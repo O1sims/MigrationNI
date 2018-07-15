@@ -25,8 +25,7 @@ projectedPopulationPyramid <- function(future = FALSE) {
     stringsAsFactors = FALSE)
   
   names(df) <- c("Age", "Male", "Female")
-  cols <- 2:3
-  df[,cols] <- apply(df[,cols], 2, function(x) {
+  df[, 2:3] <- apply(df[, 2:3], 2, function(x) {
     as.numeric(as.character(gsub(",", "", x))) })
   df <- df[df$Age != 'Total', ]  
   df$Male <- -1 * df$Male
@@ -57,7 +56,6 @@ projectedPopulationPyramid <- function(future = FALSE) {
       labels = paste0(as.character(
         c(seq(150, 25, -25), 0, seq(25, 150, 25))))) + 
     coord_flip() +
-    ggtitle("Estimated and projected age structure of the Northern Irish population, \n mid-2016 and mid-2041") +
     scale_fill_ptol() +
     theme_minimal() + 
     theme(
