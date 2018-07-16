@@ -42,8 +42,7 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
       panel.grid.minor = element_blank()) + 
     scale_fill_gradient(
       low = "firebrick1", 
-      high = "steelblue") + 
-    ggtitle("Projected population change, Northern Ireland, 2016-2041")  + 
+      high = "steelblue") +
     theme(
       plot.title = titleFont,
       axis.text = element_blank(),
@@ -53,7 +52,7 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
   
   # Save map
   ggsave(filename = getwd() %>% 
-           paste0('/figures/raw/populationMap.png'),
+           paste0('/figures/raw/populationMap-district.png'),
          plot = mapPlot)
   
   return(mapPlot)

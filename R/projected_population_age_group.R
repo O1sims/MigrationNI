@@ -14,22 +14,22 @@ projectedPopulationAgeGroup <- function(region) {
       jsonlite::fromJSON()
     
     # Population projection
-    totalPopulationChange <- ((sum(projections$persons2041) / sum(projections$persons2016)) - 1) * 100
-    childrenPopulationChange <- ((sum(projections$persons2041[1:4]) / sum(projections$persons2016[1:4])) - 1) * 100
-    workingAgePopulationChange <- ((sum(projections$persons2041[5:13]) / sum(projections$persons2016[5:13])) - 1) * 100
-    pensionableAgeChange <- ((sum(projections$persons2041[14:21]) / sum(projections$persons2016[14:21])) - 1) * 100
+    totalPopulationChange <- ((2003 - 1862) / 1862) * 100
+    childrenPopulationChange <- ((365 - 388) / 388) * 100
+    workingAgePopulationChange <- ((1190 - 1160) / 1160) * 100
+    pensionableAgeChange <- ((448 - 314) / 314) * 100
     
     # 50% less future EU migration variant
-    totalPopulationChange.variant <- ((sum(projections$persons2041.variant) / sum(projections$persons2016.variant)) - 1) * 100
-    childrenPopulationChange.variant <- ((sum(projections$persons2041.variant[1:4]) / sum(projections$persons2016.variant[1:4])) - 1) * 100
-    workingAgePopulationChange.variant <- ((sum(projections$persons2041.variant[5:13]) / sum(projections$persons2016.variant[5:13])) - 1) * 100
-    pensionableAgeChange.variant <- ((sum(projections$persons2041.variant[14:21]) / sum(projections$persons2016.variant[14:21])) - 1) * 100
+    totalPopulationChange.variant <- ((1947 - 1862) / 1862) * 100
+    childrenPopulationChange.variant <- ((350 - 388) / 388) * 100
+    workingAgePopulationChange.variant <- ((1150 - 1160) / 1160) * 100
+    pensionableAgeChange.variant <- ((446 - 314) / 314) * 100
     
     # Low migration (Northern Ireland)
-    totalPopulationChange.lowMigration <- ((sum(projections$persons2041.lowMigration) / sum(projections$persons2016.lowMigration)) - 1) * 100
-    childrenPopulationChange.lowMigration <- ((sum(projections$persons2041.lowMigration[1:4]) / sum(projections$persons2016.lowMigration[1:4])) - 1) * 100
-    workingAgePopulationChange.lowMigration <- ((sum(projections$persons2041.lowMigration[5:13]) / sum(projections$persons2016.lowMigration[5:13])) - 1) * 100
-    pensionableAgeChange.lowMigration <- ((sum(projections$persons2041.lowMigration[14:21]) / sum(projections$persons2016.lowMigration[14:21])) - 1) * 100
+    totalPopulationChange.lowMigration <- ((1862 - 1862) / 1862) * 100
+    childrenPopulationChange.lowMigration <- ((329 - 388) / 388) * 100
+    workingAgePopulationChange.lowMigration <- ((1090 - 1160) / 1160) * 100
+    pensionableAgeChange.lowMigration <- ((443 - 314) / 314) * 100
     
     ageGroupPopProjection <- data.frame(
       projection = factor(c(rep(c("Principal projection", "50% future EU migration", "Low migration"), 4))),
