@@ -1,13 +1,31 @@
+# 0 <- Antrim & Newtownabbey <- 2
+# 1 <- Armagh City, Banbridge & Craigavon <- 3
+# 2 <- Belfast <- 4
+# 3 <- Causeway Coast & Glens <- 5
+# 4 <- Derry City & Strabane <- 6
+# 5 <- Fermanagh & Omagh <- 7
+# 6 <- Lisburn & Castlereagh <- 8
+# 7 <- Mid & East Antrim <- 9
+# 8 <- Mid Ulster <- 10
+# 9 <- Newry, Mourne & Down  <- 11
+# 10 <- Ards & North Down <- 1
+
+
 getNIPopulationMap <- function(mapType = "parliamentaries") {
   normaliseVector <- function(x) {
     normalisation <- (x-min(x))/(max(x)-min(x))
     return(normalisation * 100)
   }
   
-  mapDataLocation <- ifelse(
-    test = mapType == "parliamentaries",
-    yes = "NI-parliamentary-boundaries",
-    no = "NI-county-boundaries")
+  if (mapType == "parliamentaries") {
+    mapDataLocation <- "NI-parliamentary-boundaries"
+  } else if (mapType == "districts") {
+    mapDataLocation <- "NI-district-boundaries"
+  } else if (mapType == "counties") {
+    mapDataLocation <- "NI-county-boundaries"
+  } else {
+    return("Please insert a correct `mapType`")
+  }
   
   # Load NI shapefile into R
   ni <- rgdal::readOGR(
@@ -16,7 +34,8 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
     layer = mapDataLocation)
   
   # use the NAME_2 field to create data frame
-  ni_map <- ggplot2::fortify(model = ni)
+  ni_map <- ggplot2::fortify(
+    model = ni)
   
   # Create population data
   ni_map$count <- rexp(
@@ -27,11 +46,26 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
   titleFont <- element_text(
     family = "Arial")
   
+  subNationalPopulationChange <- getwd() %>% 
+    paste0("/data/DistrictPopulationChange.json") %>% 
+    jsonlite::fromJSON()
+  
+  subNationalPopulationChange$diff <- 
+    subNationalPopulationChange$population2041 - subNationalPopulationChange$population2016
+  
+  for (i in 0:9) {
+    ni_map$count[which(ni_map$id == i %>% as.character)] <- subNationalPopulationChange$diff[i + 2]
+  }
+  ni_map$count[which(ni_map$id == "10")] <- subNationalPopulationChange$diff[1]
+  
   # Plot NI map
   mapPlot <- ggplot(
     data = ni_map, 
-    aes(x = long, y = lat, 
-        group = group, fill = count)) + 
+    aes(
+      x = long, 
+      y = lat, 
+      group = group, 
+      fill = count > 0)) + 
     geom_polygon(
       colour = "white", 
       size = 0.5, 
@@ -39,11 +73,7 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
     theme(
       panel.border = element_blank(), 
       panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank()) + 
-    scale_fill_gradient(
-      low = "firebrick1", 
-      high = "steelblue") +
-    theme(
+      panel.grid.minor = element_blank(),
       plot.title = titleFont,
       axis.text = element_blank(),
       axis.ticks = element_blank(),
@@ -51,9 +81,9 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
       legend.position = "none")
   
   # Save map
-  ggsave(filename = getwd() %>% 
-           paste0('/figures/raw/populationMap-district.png'),
-         plot = mapPlot)
+  getwd() %>%
+    paste0('/figures/raw/populationMap-district.png') %>%
+    ggsave(plot = mapPlot)
   
   return(mapPlot)
 }
