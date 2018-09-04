@@ -38,25 +38,26 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
     model = ni)
   
   # Create population data
-  ni_map$count <- rexp(
-    n = ni_map %>% nrow(), 
-    rate = 1) %>% 
-    normaliseVector()
-  
-  titleFont <- element_text(
-    family = "Arial")
-  
-  subNationalPopulationChange <- getwd() %>% 
-    paste0("/data/DistrictPopulationChange.json") %>% 
-    jsonlite::fromJSON()
-  
-  subNationalPopulationChange$diff <- 
-    subNationalPopulationChange$population2041 - subNationalPopulationChange$population2016
-  
-  for (i in 0:9) {
-    ni_map$count[which(ni_map$id == i %>% as.character)] <- subNationalPopulationChange$diff[i + 2]
+  if (mapType == "districts") {
+    subNationalPopulationChange <- getwd() %>% 
+      paste0("/data/DistrictPopulationChange.json") %>% 
+      jsonlite::fromJSON()
+    
+    subNationalPopulationChange$diff <- 
+      subNationalPopulationChange$population2041 - subNationalPopulationChange$population2016
+    
+    for (i in 0:9) {
+      ni_map$count[which(
+        ni_map$id == i %>% as.character)] <- subNationalPopulationChange$diff[i + 2]
+    }
+    ni_map$count[which(
+      ni_map$id == "10")] <- subNationalPopulationChange$diff[1]
+  } else {
+    ni_map$count <- rexp(
+      n = ni_map %>% nrow(), 
+      rate = 1) %>% 
+      normaliseVector()
   }
-  ni_map$count[which(ni_map$id == "10")] <- subNationalPopulationChange$diff[1]
   
   # Plot NI map
   mapPlot <- ggplot(
@@ -74,7 +75,6 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
       panel.border = element_blank(), 
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
-      plot.title = titleFont,
       axis.text = element_blank(),
       axis.ticks = element_blank(),
       panel.background = element_blank(),
@@ -82,7 +82,7 @@ getNIPopulationMap <- function(mapType = "parliamentaries") {
   
   # Save map
   getwd() %>%
-    paste0('/figures/raw/populationMap-district.png') %>%
+    paste0('/figures/raw/populationMap-', mapType,'.png') %>%
     ggsave(plot = mapPlot)
   
   return(mapPlot)
